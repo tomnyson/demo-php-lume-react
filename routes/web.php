@@ -18,11 +18,11 @@ $router->get('/', function () use ($router) {
 });
 
 $router->get('/hello', function () {
-    return 'google morning';
+    return redirect('/login');
 });
 
 $router->post('/hello', function () {
-    return 'create user';
+    return response()->json(['name' => 'Abigail', 'state' => 'CA']);
 });
 
 $router->get('user/{id}', function ($id) {
