@@ -71,10 +71,10 @@ $app->configure('app');
 | route or middleware that'll be assigned to some specific routes.
 |
 */
-
-// $app->middleware([
-//     App\Http\Middleware\ExampleMiddleware::class
-// ]);
+$app->register('Nord\Lumen\Cors\CorsServiceProvider');
+$app->middleware([
+	'Nord\Lumen\Cors\CorsMiddleware',
+]);
 
 // $app->routeMiddleware([
 //     'auth' => App\Http\Middleware\Authenticate::class,
