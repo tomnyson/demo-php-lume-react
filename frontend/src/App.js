@@ -4,6 +4,7 @@ import "./App.css";
 
 const HelloComp = (props) => {
     const { name = "", lop = "" } = props;
+    console.log(name);
     return (
         <h1>
             xin chào: {name}-{lop}
@@ -12,13 +13,15 @@ const HelloComp = (props) => {
 };
 const App = () => {
     const [name, setName] = useState("");
-
+    const [profile, setProfile] = useState({});
+    //https://61a5e3c48395690017be8ed2.mockapi.io/blogs/article
     useEffect(() => {
-        fetch("http://localhost:8000").then((response) =>
-            console.log(response)
-        );
+        fetch("http://localhost:8000/profile")
+            .then((response) => response.json())
+            .then((data) => setProfile(data));
     }, [name]);
-
+    
+    console.log(profile);
     return (
         <div className="container">
             <img
@@ -33,7 +36,7 @@ const App = () => {
                 Thủ tướng Phạm Minh Chính tới Thủ đô Phnom Penh, bắt đầu chuyến
                 thăm chính thức Campuchia
             </a>
-            <HelloComp name={name} lop="2022" />
+            <HelloComp name={profile?.ten} lop={profile?.lop} />
             <input
                 className="input-name"
                 type="text"

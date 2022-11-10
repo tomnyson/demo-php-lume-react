@@ -17,8 +17,13 @@ $router->get('/', function () use ($router) {
     return $router->app->version();
 });
 
-$router->get('/hello', function () {
-    return redirect('/login');
+$router->get('/profile', function () {
+    return response()->json(
+        [
+        'ten' => 'le hong son',
+         'lop' => 'C3A3131', 
+        'image'=> 'https://photo-baomoi.bmcdn.me/w700_r16x9/2022_11_08_146_44211969/443151c8608589dbd094.jpg'
+]);
 });
 
 $router->post('/hello', function () {
