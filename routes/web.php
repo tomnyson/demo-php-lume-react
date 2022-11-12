@@ -25,6 +25,11 @@ $router->get('/posts', function () use ($router) {
     return response()->json($results);
 });
 
+$router->get('/posts/{id}', function ($id) use ($router) {
+    $results = DB::select("SELECT * FROM posts where id = '{$id}'");
+    return response()->json($results);
+});
+
 $router->get('/profile', function () {
     return response()->json(
         [
