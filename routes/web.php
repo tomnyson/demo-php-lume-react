@@ -1,6 +1,7 @@
 <?php
+namespace Database\Facades;
 
-/** @var \Laravel\Lumen\Routing\Router $router */
+use Illuminate\Support\Facades\DB;
 
 /*
 |--------------------------------------------------------------------------
@@ -14,7 +15,14 @@
 */
 
 $router->get('/', function () use ($router) {
+    $results = DB::select("SELECT * FROM users");
+    var_dump($results);
     return $router->app->version();
+});
+
+$router->get('/posts', function () use ($router) {
+    $results = DB::select("SELECT * FROM posts");
+    return response()->json($results);
 });
 
 $router->get('/profile', function () {

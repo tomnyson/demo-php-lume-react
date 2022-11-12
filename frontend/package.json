@@ -23,7 +23,7 @@
       "react-app/jest"
     ]
   },
-  "proxy": "localhost:8000",
+  "proxy": "http://localhost:8000",
   "browserslist": {
     "production": [
       ">0.2%",
@@ -35,5 +35,8 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "node-sass": "^8.0.0"
   }
 }

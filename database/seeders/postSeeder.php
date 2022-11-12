@@ -1,8 +1,9 @@
 <?php
-
 namespace Database\Seeders;
 use Illuminate\Database\Seeder;
-class DatabaseSeeder extends Seeder
+use App\Models\Post;
+
+class postSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -11,7 +12,8 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        $this->call([
-            postSeeder::class]);
+        Post::factory()
+        ->count(50)
+        ->create();
     }
 }
