@@ -1,6 +1,5 @@
 import { useState, useEffect } from "react";
 import Post from "../components/Post";
-
 const Posts = () => {
     const [posts, setPosts] = useState([]);
     const [loading, setLoading] = useState(false);

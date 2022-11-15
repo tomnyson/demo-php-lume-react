@@ -1,18 +1,20 @@
 import React from "react";
-import { Link, BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import {
+    Link,
+    BrowserRouter as Router,
+    Route,
+    Routes,
+    useLocation,
+} from "react-router-dom";
 import "./App.css";
 import App from "./App";
 import Post from "./pages/Post";
+import Header from "./components/Header";
 const RouterPage = () => {
     return (
         <Router>
             <div>
-                <nav>
-                    <Link to="/">Home</Link>
-                    <Link to="/posts">Posts</Link>
-                    <Link to="/">About</Link>
-                    <Link to="/contact">Contact</Link>
-                </nav>
+                <Header />
                 <Routes>
                     <Route exact path="/" element={<App />}></Route>
                     <Route path="/posts" element={<Post />} />

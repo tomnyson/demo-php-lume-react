@@ -2,9 +2,11 @@ import { useState, useEffect } from "react";
 import logo from "./logo.svg";
 import "./App.css";
 import Post from "./components/Post";
+import { useNavigate } from "react-router-dom";
 
 const HelloComp = (props) => {
     const { name = "", lop = "", image = "" } = props;
+
     console.log(name);
     return (
         <h1>
@@ -18,6 +20,9 @@ const App = () => {
     const [name, setName] = useState("");
     const [profile, setProfile] = useState({});
     const [posts, setPosts] = useState([]);
+
+    const navigate = useNavigate();
+
     //https://61a5e3c48395690017be8ed2.mockapi.io/blogs/article
     useEffect(() => {
         fetch("http://localhost:8000/profile")
@@ -37,6 +42,14 @@ const App = () => {
     console.log(profile);
     return (
         <div className="container">
+            <button
+                style={{ display: "block" }}
+                onClick={() => {
+                    navigate("/posts");
+                }}
+            >
+                Go to Posts
+            </button>
             <img
                 className="img-style"
                 src="https://photo-baomoi.bmcdn.me/w700_r16x9/2022_11_08_146_44211969/443151c8608589dbd094.jpg"
