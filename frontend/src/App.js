@@ -50,6 +50,14 @@ const App = () => {
             >
                 Go to Posts
             </button>
+            <button
+                style={{ display: "block" }}
+                onClick={() => {
+                    navigate("/profile");
+                }}
+            >
+                Go to Profile
+            </button>
             <img
                 className="img-style"
                 src="https://photo-baomoi.bmcdn.me/w700_r16x9/2022_11_08_146_44211969/443151c8608589dbd094.jpg"
