@@ -13,11 +13,12 @@ import Header from "./components/Header";
 import ProtectRoute from "./ProtectRoute";
 import Login from "./pages/Login";
 import UserInfo from "./pages/UserInfo";
-
+import MangerPost from "./pages/admin/MangerPost";
+import Container from "react-bootstrap/Container";
 const RouterPage = () => {
     return (
         <Router>
-            <div>
+            <Container>
                 <Header />
                 <Routes>
                     <Route exact path="/" element={<App />}></Route>
@@ -30,12 +31,20 @@ const RouterPage = () => {
                             </ProtectRoute>
                         }
                     />
+                    <Route
+                        path="/admin/posts"
+                        element={
+                            <ProtectRoute>
+                                <MangerPost />
+                            </ProtectRoute>
+                        }
+                    />
                     <Route path="/about" element={<App />} />
                     <Route path="/contact" element={<App />} />
                     <Route path="/login" element={<Login />} />
                     <Route path="*" element={<h1>page not found</h1>}></Route>
                 </Routes>
-            </div>
+            </Container>
         </Router>
     );
 };

@@ -1,3 +1,4 @@
+import { Fragment } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import "./header.scss";
 const Header = () => {
@@ -18,16 +19,19 @@ const Header = () => {
                 <Link to="/">About</Link>
                 <Link to="/contact">Contact</Link>
                 {isLogin && (
-                    <Link
-                        onClick={(event) => {
-                            event.preventDefault();
-                            localStorage.removeItem("user");
-                            navigate("/");
-                        }}
-                        to="/logout"
-                    >
-                        Logout
-                    </Link>
+                    <Fragment>
+                        <Link to="/admin/posts">Admin</Link>
+                        <Link
+                            onClick={(event) => {
+                                event.preventDefault();
+                                localStorage.removeItem("user");
+                                navigate("/");
+                            }}
+                            to="/logout"
+                        >
+                            Logout
+                        </Link>
+                    </Fragment>
                 )}
             </nav>
         </div>
